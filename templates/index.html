@@ -46,7 +46,7 @@
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrar</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">Crear Empresa</a>
+                                <a class="dropdown-item" href="{% url 'empresa_crear' %}">Crear Empresa</a>
                                 <a class="dropdown-item" href="">Crear Sede</a>
                                 <a class="dropdown-item" href="">Crear Horario</a>
                                 <a class="dropdown-item" href="">Crear Usuario</a>
@@ -92,6 +92,13 @@
 
     </nav>
 
+<div class="container mt-3">
+            <div class="row mt-3 mb-3">
+                <div class="col-12">
+
+                </div>
+            </div>
+
 
         {% block content %}
         {% endblock %}
@@ -100,6 +107,7 @@
     <script src="{% static 'js/jquery-3.5.0.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 
 </body>

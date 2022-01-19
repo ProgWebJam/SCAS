@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+ 
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+  <h2>Person Form</h2>
+ 
+  <form method="post" class="mt-2" id="empresaForm"  data-estados-url="{% url 'ajax_load_estados' %}" novalidate>
+    {% csrf_token %}
+    <table>
+      <!-- {{ form.as_table }} -->
+    </table>
+ {% for field in form.visible_fields %}
+   <div class="form-group">
+  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+  {{ field|add_class:'form-control' }}
+  {% for error in field.errors %}
+    <span class="help-block">{{ error }}</span>
+  {% endfor %}
+   </div>
+ {% endfor %}
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#id_pais").change(function () {
+      var url = $("#empresaForm").attr("data-estados-url");
+      var paisId = $(this).val();
+
+      $.ajax({
+        url: url,
+        data: {
+          'pais': paisId
+        },
+        success: function (data) {
+          $("#id_estado").html(data);
+        }
+      });
+
+    });
+  </script>
+ 
+{% endblock %}

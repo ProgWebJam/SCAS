@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'empresa',
     'pais',
     'sede',
-    'tipo_usuario',
     'turno',
     'usuario',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
