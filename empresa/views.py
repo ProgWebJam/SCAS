@@ -26,7 +26,7 @@ class EmpresaListView(ListView):
 class EmpresaUpdateView(UpdateView):
     model = Empresa
     form_class = EmpresaForm
-    template_name = 'empresa/empresa_form.html'
+    template_name = 'empresa/empresa_form.html';
     success_url = reverse_lazy('empresa_listar')
 
 
