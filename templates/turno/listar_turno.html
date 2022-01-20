@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block title %} Listar Turnos {% endblock %}
+
+{% block content %}
+
+<H1>Turnos</H1>
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr class="table-info ">
+      <th scope="col">Sede</th>
+      <th scope="col">hora_inicial</th>
+      <th scope="col">hora_final</th>
+      <th scope="col">usuario</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for turno in turnos %}
+    <tr>
+      <th scope="row">{{ turno.sede }}</th>
+      <td>{{ turno.hora_inicial }}</td>
+      <td>{{ turno.hora_final }}</td>
+      <td>{{ turno.usuario }}</td>
+      <th scope="col">
+
+          <a href="{% url 'turno_actualizar' turno.id %}" class="btn btn-secondary"> editar </a>
+          <a href="{% url 'turno_eliminar' turno.id %}" class="btn btn-danger"> eliminar </a>
+
+      </th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}
