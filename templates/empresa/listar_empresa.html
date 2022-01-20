@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %} Listar Empresa {% endblock %}
+
+{% block content %}
+
+    <H1>Empresas</H1>
+<hr />
+<div class="row">
+
+    <div class="col-12 m-2">
+        <div class="row">
+            {% for empresa in empresas %}
+                <div class="col-md-3 col-sm-12 col-lg-4 pb-3">
+                    <div class="card">
+                        {% if empresa.image %}
+                        <img src="{{ empresa.image.url }}" height="300" class="card-img-top" alt="{{ empresa.nom_comercial }}" />
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ empresa.nom_comercial}}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+
+
+                            <a href="{% url 'empresa_actualizar' empresa.id %}" class="btn btn-secondary"> editar </a>
+                            <a href="{% url 'empresa_eliminar' empresa.id %}" class="btn btn-danger"> eliminar </a>
+
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

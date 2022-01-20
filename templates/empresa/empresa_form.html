@@ -5,7 +5,7 @@
 {% load static %}
   <h2>Person Form</h2>
  
-  <form method="post" class="mt-2" id="empresaForm"  data-estados-url="{% url 'ajax_load_estados' %}" novalidate>
+  <form method="post" class="mt-2" id="empresaForm" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <table>
       <!-- {{ form.as_table }} -->
@@ -19,25 +19,8 @@
   {% endfor %}
    </div>
  {% endfor %}
+
+      <button type="submit" class="btn btn-success">Guardar</button>
   </form>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script>
-    $("#id_pais").change(function () {
-      var url = $("#empresaForm").attr("data-estados-url");
-      var paisId = $(this).val();
-
-      $.ajax({
-        url: url,
-        data: {
-          'pais': paisId
-        },
-        success: function (data) {
-          $("#id_estado").html(data);
-        }
-      });
-
-    });
-  </script>
  
 {% endblock %}

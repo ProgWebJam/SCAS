@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Empresa
 from pais.models import Estado
 from django.urls import reverse_lazy
@@ -14,7 +14,21 @@ class EmpresaCreateView(CreateView):
     template_name = 'empresa/empresa_form.html'
     success_url = reverse_lazy('index')
 
-def load_estados(request):
-    pais_id = request.GET.get('pais')
-    estados = Estado.objects.filter(pais_id=pais_id).order_by('name')
-    return render(request, 'estado_dropdown_list_options.html', {'estados': estados})
+class EmpresaListView(ListView):
+    model = Empresa
+    context_object_name = 'empresas'
+    template_name = 'empresa/listar_empresa.html'
+
+class EmpresaUpdateView(UpdateView):
+    model = Empresa
+    form_class = EmpresaForm
+    template_name = 'empresa/empresa_form.html'
+    success_url = reverse_lazy('empresa_listar')
+
+class EmpresaDeleteView(DeleteView):
+    model = Empresa
+    success_url = reverse_lazy('empresa_listar')
+
+
+
+
