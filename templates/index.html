@@ -35,11 +35,11 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
-            {% comment %}
+
             {% if user.is_authenticated %}
-            {% endcomment %}
+
                         <li class="nav-item">
-                            <a class="nav-link" href="">Bienvenido</a>
+                            <a class="nav-link" href="">Bienvenido {{ user.username }}</a>
                         </li>
 
 
@@ -70,22 +70,22 @@
                             <a class="nav-link" href="#">Invitar Usuario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Cerrar Sesion</a>
+                            <a class="nav-link" href="{% url 'salir' %}">Cerrar Sesion</a>
                         </li>
 
-            {% comment %}
+
             {% else %}
-            {% endcomment %}
+
                         <li class="nav-item">
-                            <a class="nav-link" href="">Acceder</a>
+                            <a class="nav-link" href="{% url 'acceder' %}">Acceder</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">Registro</a>
+                            <a class="nav-link" href="{% url 'registro' %}">Registro</a>
                         </li>
-            {% comment %}
+
             {% endif %}
-            {% endcomment %}
+
                 </ul>
 
         </div>

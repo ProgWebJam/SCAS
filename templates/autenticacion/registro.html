@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+  <h2>Person Form</h2>
+
+  <form method="post" class="mt-2"  enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <table>
+      <!-- {{ form.as_table }} -->
+    </table>
+ {% for field in form.visible_fields %}
+   <div class="form-group">
+  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+  {{ field|add_class:'form-control' }}
+  {% for error in field.errors %}
+    <span class="help-block">{{ error }}</span>
+  {% endfor %}
+   </div>
+ {% endfor %}
+
+      <button type="submit" class="btn btn-success">Crear Cuenta</button>
+  </form>
+
+{% endblock %}
