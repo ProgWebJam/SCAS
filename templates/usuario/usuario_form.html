@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+ 
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+  <h2>Formulario Usuario</h2>
+ 
+  <form method="post" class="mt-2" id="usuarioForm" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <table>
+
+    </table>
+ {% for field in form.visible_fields %}
+   <div class="form-group">
+  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+  {{ field|add_class:'form-control' }}
+  {% for error in field.errors %}
+    <span class="help-block">{{ error }}</span>
+  {% endfor %}
+   </div>
+ {% endfor %}
+
+      <button type="submit" class="btn btn-success">Guardar</button>
+  </form>
+ 
+{% endblock %}

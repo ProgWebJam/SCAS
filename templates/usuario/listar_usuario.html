@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block title %} Listar Usuuario {% endblock %}
+
+{% block content %}
+
+    <H1>Usuario</H1>
+<hr />
+<div class="row">
+
+    <div class="col-12 m-2">
+        <div class="row">
+            {% for usuario in usuarios %}
+                <div class="col-md-3 col-sm-12 col-lg-4 pb-3">
+                    <div class="card">
+                        {% if usuario.image %}
+                        <img src="{{ usuario.image.url }}" height="300" class="card-img-top" alt="{{ usuario.nombre }}" />
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ usuario }}</h5>
+                            <h5 class="card-title">{{ usuario.get_tipo_display }}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+
+
+                            <a href="{% url 'usuario_actualizar' usuario.id %}" class="btn btn-secondary"> editar </a>
+                            <a href="{% url 'usuario_eliminar' usuario.id %}" class="btn btn-danger"> eliminar </a>
+
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

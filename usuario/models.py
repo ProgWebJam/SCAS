@@ -22,4 +22,4 @@ class Usuario(models.Model):
     tipo = models.CharField(max_length=1, choices=LISTA_TIPO_USUARIO)
 
     def __str__(self):
-        return self.nombre;
+        return self.nombre + " - " + self.apellido;

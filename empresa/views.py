@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Empresa
-from pais.models import Estado
 from django.urls import reverse_lazy
 from .forms import EmpresaForm
 
