@@ -18,10 +18,15 @@
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ empresa.nom_comercial}}</h5>
+                            <h5 class="card-title">{{ empresa.id }}</h5>
+                            <h5 class="card-title">{{ empresa.sede.empresa_id }}</h5>
                         </div>
+                        {% if empresa.id %}
+                        <a href="{% url 'sede_listar' %}" class="btn btn-secondary"> Ingresar </a>
+                        {% endif %}
                         <div class="card-footer text-center">
 
-
+                        <hr />
                             <a href="{% url 'empresa_actualizar' empresa.id %}" class="btn btn-secondary"> editar </a>
                             <a href="{% url 'empresa_eliminar' empresa.id %}" class="btn btn-danger"> eliminar </a>
 

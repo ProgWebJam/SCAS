@@ -47,7 +47,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrar</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{% url 'empresa_crear' %}">Crear Empresa</a>
-                                <a class="dropdown-item" href="">Crear Sede</a>
+                                <a class="dropdown-item" href="{% url 'sede_crear' %}">Crear Sede</a>
                                 <a class="dropdown-item" href="">Crear Horario</a>
                                 <a class="dropdown-item" href="{% url 'usuario_crear' %}">Crear Usuario</a>
 
@@ -59,7 +59,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                                 <a class="dropdown-item" href="{% url 'empresa_listar' %}">Todas las Empresa</a>
-                                <a class="dropdown-item" href="">Todos los Sede</a</a>
+                                <a class="dropdown-item" href="{% url 'sede_listar' %}">Todos los Sede</a</a>
                                 <a class="dropdown-item" href="">Todos los Horario</a>
                                 <a class="dropdown-item" href="{% url 'usuario_listar' %}">Todas las Usuario</a>
                                 <div class="dropdown-divider"></div>
