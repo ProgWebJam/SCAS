@@ -17,6 +17,8 @@ class UsuarioListView(ListView):
     model = Usuario
     context_object_name = 'usuarios'
     template_name = 'usuario/listar_usuario.html'
+    queryset = Usuario.objects.all()
+    paginate_by = 3
 
 
 class UsuarioUpdateView(UpdateView):

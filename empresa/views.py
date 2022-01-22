@@ -9,6 +9,14 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render( request,'index.html')
 
+def send_email(email):
+    pass
+
+def invitarUsuario(request):
+    if request.method == 'POST':
+        send_email()
+    return render( request,'index.html')
+
 
 class EmpresaCreateView(CreateView):
     model = Empresa
@@ -21,6 +29,8 @@ class EmpresaListView(ListView):
     model = Empresa
     context_object_name = 'empresas'
     template_name = 'empresa/listar_empresa.html'
+    queryset = Empresa.objects.all()
+    paginate_by = 3
 
 
 class EmpresaUpdateView(UpdateView):

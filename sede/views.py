@@ -17,6 +17,8 @@ class SedeListView(ListView):
     model = Sede
     context_object_name = 'sedes'
     template_name = 'sede/listar_sede.html'
+    queryset = Sede.objects.all()
+    paginate_by = 3
 
 
 class SedeUpdateView(UpdateView):
