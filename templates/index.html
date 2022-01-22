@@ -66,9 +66,15 @@
                             </div>
                         </div>
 
+                        {% comment  %}
+                        {% if usuario.get_tipo_display == 'superusuario' %}
+                        {% endcomment %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Invitar Usuario</a>
+                            <a class="nav-link" href="{% url 'invitar_usurio' %}">Invitar Usuario</a>
                         </li>
+                        {% comment  %}
+                        {% endif %}
+                        {% endcomment %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'salir' %}">Cerrar Sesion</a>
                         </li>

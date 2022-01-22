@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+{% extends 'index.html' %}
+
+{% block title %} Listar Empresa {% endblock %}
+
+{% block content %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,5 +11,14 @@
 </head>
 <body>
 
+<h1>Correo Usario Invitado</h1>
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="mail" placeholder="demo@example.com">
+    <input type="submit" value="Enviar">
+</form>
+
 </body>
 </html>
+{% endblock %}

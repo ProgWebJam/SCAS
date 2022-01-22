@@ -5,17 +5,35 @@ from django.urls import reverse_lazy
 from .forms import EmpresaForm
 from django.contrib.auth.decorators import login_required
 
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
+from django.conf import settings
+
 @login_required(login_url='/accounts/acceder')
 def index(request):
     return render( request,'index.html')
 
-def send_email(email):
-    pass
+def send_email(mail):
+    #print(mail)
+    context = { 'mail' : mail }
+    template = get_template('correo.html')
+    content = template.render(context)
+
+    email = EmailMultiAlternatives(
+        'Un correo de prueba',
+        'Invitacion usuario a registrarse',
+        settings.EMAIL_HOST_USER,
+        [mail]
+    )
+
+    email.attach_alternative(content,'text/html')
+    email.send()
 
 def invitarUsuario(request):
     if request.method == 'POST':
-        send_email()
-    return render( request,'index.html')
+        mail = request.POST.get('mail')
+        send_email(mail)
+    return render( request,'empresa/enviar_correo.html')
 
 
 class EmpresaCreateView(CreateView):
