@@ -4,6 +4,7 @@ from .models import Empresa
 from django.urls import reverse_lazy
 from .forms import EmpresaForm
 from django.contrib.auth.decorators import login_required
+from pais.models import Pais , Estado
 
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
@@ -33,8 +34,13 @@ def invitarUsuario(request):
     if request.method == 'POST':
         mail = request.POST.get('mail')
         send_email(mail)
-    return render( request,'empresa/enviar_correo.html')
+    return render( request,'enviar_correo.html')
 
+
+def load_estado(request):
+    pais_id = request.GET.get('pais')
+    estados = Estado.objects.filter(pais_id=pais_id).order_by('nombre')
+    return render(request, 'estado_dropdown_list_options.html', {'estados': estados})
 
 class EmpresaCreateView(CreateView):
     model = Empresa

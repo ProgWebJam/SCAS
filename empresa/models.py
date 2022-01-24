@@ -1,6 +1,6 @@
 from django.db import models
 from pais.models import Pais
-#from pais.models import Estado
+from pais.models import Estado
 from usuario.models import Usuario
 
 class Empresa(models.Model):
@@ -13,7 +13,7 @@ class Empresa(models.Model):
     correo = models.EmailField(max_length=150)
     web = models.URLField(max_length=200)
     pais = models.ForeignKey(Pais, on_delete=models.CASCADE, null=True, blank=True)
-    #estado = models.ForeignKey(Estado, on_delete=models.CASCADE, null=True, blank=True)
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE, null=True, blank=True)
     image = models.ImageField(upload_to='empresa/', blank=True)
 
     def __str__(self):

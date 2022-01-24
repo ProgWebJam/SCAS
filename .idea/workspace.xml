@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a29fc0d9-6cd1-41e8-9f95-ebc1c1308cf3" name="Default Changelist" comment="" />
+    <list default="true" id="a29fc0d9-6cd1-41e8-9f95-ebc1c1308cf3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresa/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresa/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresa/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresa/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresa/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresa/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/empresa/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/empresa/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/correo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/correo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/empresa/empresa_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/empresa/empresa_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/empresa/enviar_correo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/enviar_correo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/estado_dropdown_list_options.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/estado_dropdown_list_options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
