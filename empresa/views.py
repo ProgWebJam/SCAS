@@ -4,7 +4,7 @@ from .models import Empresa
 from django.urls import reverse_lazy
 from .forms import EmpresaForm
 from django.contrib.auth.decorators import login_required
-from pais.models import Pais , Estado
+from pais.models import Pais , Estado , Ciudad
 
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
@@ -41,6 +41,11 @@ def load_estado(request):
     pais_id = request.GET.get('pais')
     estados = Estado.objects.filter(pais_id=pais_id).order_by('nombre')
     return render(request, 'estado_dropdown_list_options.html', {'estados': estados})
+
+def load_ciudad(request):
+    estado_id = request.GET.get('estado')
+    ciudades = Ciudad.objects.filter(estado_id=estado_id).order_by('nombre')
+    return render(request, 'ciudad_dropdown_list_options.html', {'ciudades': ciudades})
 
 class EmpresaCreateView(CreateView):
     model = Empresa

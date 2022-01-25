@@ -5,7 +5,7 @@
 {% load static %}
   <h2>Person Form</h2>
  
-  <form method="post" class="mt-2" id="empresaForm" data-estados-url="{% url 'ajax_load_estado' %}" enctype="multipart/form-data" novalidate>
+  <form method="post" class="mt-2" id="empresaForm" data-estados-url="{% url 'ajax_load_estado' %}" data-ciudad-url="{% url 'ajax_load_ciudad' %}" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <table>
       <!-- {{ form.as_table }} -->
@@ -39,6 +39,22 @@
         },
         success: function (data) {
           $("#id_estado").html(data);
+        }
+      });
+
+    });
+
+    $("#id_estado").change(function () {
+      var url = $("#empresaForm").attr("data-ciudad-url");
+      var estadoId = $(this).val();
+
+      $.ajax({
+        url: url,
+        data: {
+          'estado': estadoId
+        },
+        success: function (data) {
+          $("#id_ciudad").html(data);
         }
       });
 
